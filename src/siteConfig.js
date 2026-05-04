@@ -1,11 +1,27 @@
+const env =
+  typeof import.meta !== "undefined" && import.meta.env
+    ? import.meta.env
+    : globalThis.process?.env || {};
+
+function envValue(key, fallback) {
+  return env[key] || fallback;
+}
+
+function envBoolean(key, fallback) {
+  const value = env[key];
+
+  if (value === undefined) return fallback;
+  return value === "true";
+}
+
 export const siteConfig = {
   brand: {
-    name: "Pulse Studio",
-    homeUrl: "/"
+    name: envValue("VITE_BRAND_NAME", "Pulse Studio"),
+    homeUrl: envValue("VITE_BRAND_HOME_URL", "/")
   },
   seo: {
-    siteUrl: "https://example.com",
-    titleSuffix: "Pulse Studio",
+    siteUrl: envValue("VITE_SITE_URL", "https://example.com"),
+    titleSuffix: envValue("VITE_TITLE_SUFFIX", "Pulse Studio"),
     sitemapPath: "/sitemap.xml",
     pages: [
       { path: "/", priority: "1.0" },
@@ -17,9 +33,9 @@ export const siteConfig = {
     ]
   },
   theme: {
-    accent: "#7dd3fc",
-    accentStrong: "#f97316",
-    green: "#a3e635"
+    accent: envValue("VITE_THEME_ACCENT", "#7dd3fc"),
+    accentStrong: envValue("VITE_THEME_ACCENT_STRONG", "#f97316"),
+    green: envValue("VITE_THEME_GREEN", "#a3e635")
   },
   navigation: [
     { label: "Work", href: "/work.html", key: "work" },
@@ -29,18 +45,25 @@ export const siteConfig = {
     { label: "Contact", href: "/contact.html", key: "contact" }
   ],
   pages: {
-    pricing: true,
-    template: true,
-    contact: true
+    pricing: envBoolean("VITE_ENABLE_PRICING_PAGE", true),
+    template: envBoolean("VITE_ENABLE_TEMPLATE_PAGE", true),
+    contact: envBoolean("VITE_ENABLE_CONTACT_PAGE", true)
   },
   templatePage: {
-    enabled: true,
-    disabledRedirect: "/",
-    downloadPath: "/downloads/pulse-studio-template.zip"
+    enabled: envBoolean("VITE_ENABLE_TEMPLATE_PAGE", true),
+    disabledRedirect: envValue("VITE_TEMPLATE_DISABLED_REDIRECT", "/"),
+    githubUrl: envValue(
+      "VITE_TEMPLATE_GITHUB_URL",
+      "https://github.com/CookieShualon/animated-landing-page"
+    ),
+    cloneUrl: envValue(
+      "VITE_TEMPLATE_CLONE_URL",
+      "https://github.com/CookieShualon/animated-landing-page.git"
+    )
   },
   contact: {
-    email: "hello@example.com",
-    emailPlaceholder: "you@example.com"
+    email: envValue("VITE_CONTACT_EMAIL", "hello@example.com"),
+    emailPlaceholder: envValue("VITE_CONTACT_EMAIL_PLACEHOLDER", "you@example.com")
   },
   logos: ["Northline", "Arc Labs", "Vexa", "SignalHaus", "Monarch"],
   stats: [
@@ -49,8 +72,8 @@ export const siteConfig = {
     { value: 100, label: "Responsive layout" }
   ],
   animation: {
-    cinematicScroll: true,
-    counters: true,
-    visualAccents: true
+    cinematicScroll: envBoolean("VITE_ENABLE_CINEMATIC_SCROLL", true),
+    counters: envBoolean("VITE_ENABLE_COUNTERS", true),
+    visualAccents: envBoolean("VITE_ENABLE_VISUAL_ACCENTS", true)
   }
 };

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Download and customize the Pulse Studio animated GSAP landing page template."
+      content="Clone and customize the Pulse Studio animated GSAP landing page template."
     />
     <link rel="canonical" href="https://example.com/use-template.html" />
     <title>Use This Template | Pulse Studio</title>
@@ -23,14 +23,14 @@
         <a href="/use-template.html" data-template-nav>Template</a>
         <a href="/contact.html">Contact</a>
       </nav>
-      <a class="nav-action" href="/downloads/pulse-studio-template.zip" data-download-link download>Download</a>
+      <a class="nav-action" href="https://github.com/CookieShualon/animated-landing-page" data-github-link>GitHub</a>
     </header>
 
     <main>
       <section class="template-hero">
         <div data-animate="fade-up">
           <p class="eyebrow">Use this template</p>
-          <h1>Download the GSAP landing page starter.</h1>
+          <h1>Clone the GSAP landing page starter.</h1>
           <p class="hero-text">
             A production-ready Vite template with multi-page HTML, reusable GSAP
             animation utilities, cinematic scroll effects, SEO files, and modular CSS.
@@ -38,11 +38,10 @@
           <div class="hero-actions">
             <a
               class="button primary"
-              href="/downloads/pulse-studio-template.zip"
-              data-download-link
-              download
+              href="https://github.com/CookieShualon/animated-landing-page"
+              data-github-link
             >
-              Download Template
+              Open on GitHub
             </a>
             <a class="button secondary" href="#files">View Files</a>
           </div>
@@ -56,12 +55,17 @@
             <span>pricing.html</span>
             <span>contact.html</span>
             <span>use-template.html</span>
-            <span>src/siteConfig.js</span>
             <span>src/animations.js</span>
             <span>src/styles.css</span>
-            <span>public/downloads/</span>
+            <span>.env.example</span>
+            <span>README.md</span>
           </div>
         </div>
+      </section>
+
+      <section class="clone-section" data-scroll-section>
+        <p class="eyebrow">Clone command</p>
+        <code data-clone-url>git clone https://github.com/CookieShualon/animated-landing-page.git</code>
       </section>
 
       <section id="files" class="content-section">
@@ -91,22 +95,22 @@
             <p>The public folder includes robots.txt and sitemap.xml so production builds expose them at the site root.</p>
           </article>
           <article class="file-info-card" data-scroll-card>
-            <span>Config</span>
+            <span>Env</span>
             <h3>Template control panel</h3>
-            <p>Use src/siteConfig.js to control brand, navigation, colors, downloads, page toggles, stats, logos, and animation switches.</p>
+            <p>Use .env values to control brand, colors, GitHub links, page toggles, contact details, and animation switches.</p>
           </article>
         </div>
       </section>
 
       <section class="content-section">
         <div class="section-heading" data-scroll-section>
-          <p class="eyebrow">Config options</p>
+          <p class="eyebrow">Env options</p>
           <h2>Make it yours without editing every page.</h2>
         </div>
         <div class="config-grid">
           <article class="config-card" data-scroll-card>
             <span>Domain</span>
-            <p>Set seo.siteUrl once to update canonical URLs, robots.txt, and sitemap.xml during builds.</p>
+            <p>Set VITE_SITE_URL once to update canonical URLs, robots.txt, and sitemap.xml during builds.</p>
           </article>
           <article class="config-card" data-scroll-card>
             <span>Brand</span>
@@ -118,15 +122,15 @@
           </article>
           <article class="config-card" data-scroll-card>
             <span>Theme</span>
-            <p>Set accent colors in the config and the CSS variables update at runtime.</p>
+            <p>Set accent colors with env variables and the CSS variables update at runtime.</p>
           </article>
           <article class="config-card" data-scroll-card>
             <span>Pages</span>
             <p>Turn optional pages like Pricing, Contact, and Template on or off with simple booleans.</p>
           </article>
           <article class="config-card" data-scroll-card>
-            <span>Download</span>
-            <p>Point the Template page buttons to any zip path or hosted download URL.</p>
+            <span>Repository</span>
+            <p>Point the Template page buttons to your GitHub URL and clone URL from environment variables.</p>
           </article>
           <article class="config-card" data-scroll-card>
             <span>Motion</span>
@@ -137,8 +141,8 @@
 
       <section class="split-section">
         <div data-scroll-section>
-          <p class="eyebrow">Setup and config</p>
-          <h2>Start customizing, then control optional pages from one file.</h2>
+          <p class="eyebrow">Setup and env</p>
+          <h2>Start customizing, then control the template from environment variables.</h2>
         </div>
         <div class="template-setup-stack">
           <div class="command-panel" data-scroll-card>
@@ -147,12 +151,12 @@
             <code>npm run build</code>
           </div>
           <div class="config-panel" data-scroll-card>
-            <span>src/siteConfig.js</span>
-            <code>seo.siteUrl: "https://example.com"</code>
-            <code>templatePage.enabled: true</code>
-            <code>theme.accent: "#7dd3fc"</code>
-            <code>animation.cinematicScroll: true</code>
-            <p>Change the values in this file to rebrand the site, update the domain, hide optional pages, update downloads, and tune motion.</p>
+            <span>.env</span>
+            <code>VITE_SITE_URL=https://your-domain.com</code>
+            <code>VITE_TEMPLATE_GITHUB_URL=https://github.com/you/repo</code>
+            <code>VITE_ENABLE_TEMPLATE_PAGE=true</code>
+            <code>VITE_ENABLE_CINEMATIC_SCROLL=true</code>
+            <p>Set these values in .env locally or in your Vercel project settings to rebrand the site, update the domain, hide optional pages, and tune motion.</p>
           </div>
         </div>
       </section>

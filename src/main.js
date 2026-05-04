@@ -54,8 +54,12 @@ function initSiteConfig() {
       .join("");
   });
 
-  document.querySelectorAll("[data-download-link]").forEach((link) => {
-    link.href = siteConfig.templatePage.downloadPath;
+  document.querySelectorAll("[data-github-link]").forEach((link) => {
+    link.href = siteConfig.templatePage.githubUrl;
+  });
+
+  document.querySelectorAll("[data-clone-url]").forEach((element) => {
+    element.textContent = `git clone ${siteConfig.templatePage.cloneUrl}`;
   });
 
   document.querySelectorAll("[data-contact-email]").forEach((link) => {

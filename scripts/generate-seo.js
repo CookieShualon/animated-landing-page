@@ -1,10 +1,39 @@
-import { mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { siteConfig } from "../src/siteConfig.js";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const publicDir = resolve(root, "public");
+
+function loadEnvFile(filename) {
+  const envPath = resolve(root, filename);
+
+  if (!existsSync(envPath)) return;
+
+  readFileSync(envPath, "utf8")
+    .split(/\r?\n/)
+    .forEach((line) => {
+      const trimmed = line.trim();
+
+      if (!trimmed || trimmed.startsWith("#")) return;
+
+      const separatorIndex = trimmed.indexOf("=");
+      if (separatorIndex === -1) return;
+
+      const key = trimmed.slice(0, separatorIndex).trim();
+      const value = trimmed
+        .slice(separatorIndex + 1)
+        .trim()
+        .replace(/^["']|["']$/g, "");
+
+      process.env[key] ??= value;
+    });
+}
+
+loadEnvFile(".env");
+loadEnvFile(".env.local");
+
+const { siteConfig } = await import("../src/siteConfig.js");
 
 function isPageEnabled(key) {
   if (!key) return true;

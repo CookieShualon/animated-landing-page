@@ -926,6 +926,24 @@ details p {
   background-size: 36px 36px;
 }
 
+.clone-section {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 80px;
+}
+
+.clone-section code {
+  display: block;
+  overflow-x: auto;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(16, 17, 19, 0.82);
+  color: var(--green);
+  font-size: clamp(0.86rem, 2vw, 1.1rem);
+  white-space: nowrap;
+}
+
 .file-tree {
   position: absolute;
   inset: 48px;
@@ -1190,6 +1208,10 @@ textarea:focus {
   .template-hero {
     width: min(100% - 24px, 1180px);
     padding-top: 128px;
+  }
+
+  .clone-section {
+    width: min(100% - 24px, 1180px);
   }
 
   .template-preview {
