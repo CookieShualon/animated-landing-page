@@ -30,6 +30,8 @@ Copy the example environment file:
 cp .env.example .env
 ```
 
+For Vercel, add the same `VITE_*` keys from `.env.example` in Project Settings > Environment Variables.
+
 Important options:
 
 ```bash
