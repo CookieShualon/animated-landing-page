@@ -158,7 +158,7 @@ main {
 }
 
 .hero-copy {
-  max-width: 720px;
+  max-width: 780px;
 }
 
 .eyebrow {
@@ -178,17 +178,17 @@ p {
 }
 
 h1 {
-  max-width: 11ch;
+  max-width: 12ch;
   margin-bottom: 24px;
-  font-size: clamp(4rem, 11vw, 7.8rem);
-  line-height: 0.92;
+  font-size: 6.8rem;
+  line-height: 0.94;
   letter-spacing: 0;
 }
 
 h2 {
   max-width: 760px;
   margin-bottom: 20px;
-  font-size: clamp(2.2rem, 5vw, 4.8rem);
+  font-size: 4.4rem;
   line-height: 0.98;
   letter-spacing: 0;
 }
@@ -1126,8 +1126,8 @@ textarea:focus {
   }
 
   h1 {
-    max-width: 9ch;
-    font-size: 4.35rem;
+    max-width: 11ch;
+    font-size: 4.25rem;
   }
 
   .hero-visual {
@@ -1231,11 +1231,12 @@ textarea:focus {
   }
 
   h1 {
-    font-size: 3.45rem;
+    max-width: 10ch;
+    font-size: 3.25rem;
   }
 
   h2 {
-    font-size: 2.45rem;
+    font-size: 2.35rem;
   }
 
   .button {

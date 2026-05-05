@@ -32,6 +32,8 @@ cp .env.example .env
 
 For Vercel, add the same `VITE_*` keys from `.env.example` in Project Settings > Environment Variables.
 
+Vercel may warn that `VITE_*` variables are exposed to the browser. That is expected for Vite. The variables in this template are public site settings only, so they are safe to mark as safe. Do not store private API keys, passwords, tokens, or secrets in `VITE_*` variables.
+
 Important options:
 
 ```bash
